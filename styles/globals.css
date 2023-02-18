@@ -6,22 +6,55 @@ body{
   display: flex;
   width: 390px;
   flex-direction: row;
-  align-items:flex-start;
-  background-color: rgb(127, 127, 127);
+  align-items:center;
+  justify-content: space-between;
+  
 }
 
 .cell{
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   border:1px solid white;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center
+  ;
+  align-items: center;
+  
 }
 
 .column{
- border: 2px red solid;
+
+background-color: rgba(240, 248, 255, 0.076);
+ 
 }
 
 .button{
+  height: 60px;
+  width: 60px;
+  border: white 1px solid
+}
+
+.empty-cell{
+  position: absolute;
+  color: rgba(240, 255, 255, 0.075);
+  background-color: rgba(255, 255, 255, 0.077)
+}
+
+.red-circle{
+  background-color: red;
+  border-radius: 100%;
   height: 50px;
   width: 50px;
-  border: solid blue 1px
+  position: absolute;
 }
+
+.blue-circle{
+  background-color: blue;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+}
+

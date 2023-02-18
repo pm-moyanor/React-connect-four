@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cell from "./Cell";
 
 export default function Board() {
   const [red, setRed] = useState("");
@@ -36,7 +37,7 @@ export default function Board() {
             </div>
             <div key={columnIndex} className="column">
               {column.map((cell, rowIndex) => (
-                <div key={rowIndex} className="cell"></div>
+               <Cell red={red} blue={blue} rowIndex={rowIndex} />
               ))}
             </div>
           </div>
