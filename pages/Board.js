@@ -2,8 +2,8 @@ import { useState } from "react";
 import Cell from "./Cell";
 
 export default function Board() {
-  const [red, setRed] = useState("");
-  const [blue, setBlue] = useState("");
+  const [move, setMove] = useState("empty-cell");
+
   const numberOfColumns = 7;
   const numberOfRows = 6;
 
@@ -11,16 +11,26 @@ export default function Board() {
   let rows = [];
 
   function makeBoard() {
-    columns = Array.from({ length: numberOfColumns }, () =>
-      new Array(numberOfRows).fill(null)
+    columns = Array.from(
+      { length: numberOfColumns },
+      () => (rows = new Array(numberOfRows).fill(null))
     );
-    console.log(columns);
+   
   }
   makeBoard();
 
-  function handleClick(e) {
-    console.log(e.target.id );
+  function handleClick(columnIndex, rowIndex) {
+    console.log(`${columnIndex}.${rowIndex}`);
+    makeMove()
   }
+
+  function makeMove(index){
+   if(move ==="empty-cell"){setMove('red')
+}else if (move === "red"){
+    setMove("blue")
+  console.log(move)
+  }
+}
   return (
     <>
       <h2>Connect Four</h2>
@@ -31,13 +41,25 @@ export default function Board() {
               key={`${columnIndex}.btn`}
               id={`${columnIndex}.btn`}
               className="button"
-              onClick={handleClick}
-            >
-            
-            </div>
-            <div key={columnIndex} className="column">
+              onClick={() => handleClick(columnIndex)}
+            ></div>
+
+            <div className="column">
               {column.map((cell, rowIndex) => (
-               <Cell red={red} blue={blue} rowIndex={rowIndex} />
+                <div
+                  style={{ color: "white" }}
+                  id={`${columnIndex}.${rowIndex}`}
+                  onClick={() => handleClick(columnIndex, rowIndex)}
+                >
+                  <Cell
+                    id={`${columnIndex}.${rowIndex}`}
+                    move={move}
+                    rows={rows}
+                    handleClick={handleClick}
+                    columnIndex={columnIndex}
+                    rowIndex={rowIndex}
+                  />
+                </div>
               ))}
             </div>
           </div>
@@ -46,11 +68,10 @@ export default function Board() {
     </>
   );
 }
-//todo 
+//todo
 
 // add className for circle red, circle blue or empty
 // add logic on click change state and toggle each classname?
 //add function isWinner to check the four consecutive states
-//add css 
+//add css
 //add error handling
-

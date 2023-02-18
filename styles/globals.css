@@ -42,7 +42,7 @@ background-color: rgba(240, 248, 255, 0.076);
   background-color: rgba(255, 255, 255, 0.077)
 }
 
-.red-circle{
+.red{
   background-color: red;
   border-radius: 100%;
   height: 50px;
@@ -50,7 +50,7 @@ background-color: rgba(240, 248, 255, 0.076);
   position: absolute;
 }
 
-.blue-circle{
+.blue{
   background-color: blue;
   border-radius: 100%;
   height: 50px;
