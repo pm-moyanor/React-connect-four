@@ -16,13 +16,24 @@ export default function Board() {
     console.log(columns);
   }
   makeBoard();
+
+  function handleClick(e) {
+    console.log(e.target.id );
+  }
   return (
     <>
       <h2>Connect Four</h2>
       <div className="board">
         {columns.map((column, columnIndex) => (
-          <div className="col-button-box">
-            <div className="button">button</div>
+          <div key={`${columnIndex}.box`} className="col-button-box">
+            <div
+              key={`${columnIndex}.btn`}
+              id={`${columnIndex}.btn`}
+              className="button"
+              onClick={handleClick}
+            >
+            
+            </div>
             <div key={columnIndex} className="column">
               {column.map((cell, rowIndex) => (
                 <div key={rowIndex} className="cell"></div>
@@ -34,3 +45,11 @@ export default function Board() {
     </>
   );
 }
+//todo 
+
+// add className for circle red, circle blue or empty
+// add logic on click change state and toggle each classname?
+//add function isWinner to check the four consecutive states
+//add css 
+//add error handling
+
