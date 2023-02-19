@@ -1,26 +1,17 @@
-import { useState } from "react";
-
-export default function Cell({
-  id,
-  columnIndex,
-  rowIndex,
-  handleClick,
-  move
-}) {
 
 
-  return (
-    <div
-      className="cell"
-      id={id}
-      onClick={() => {
-        handleClick(columnIndex, rowIndex);
-        
-      }}
-    >
-      <div className={move}></div>
-      {/* <div className="red-circle"> </div>
-      <div className="blue-circle"></div> */}
-    </div>
-  );
-}
+export default function Cell({ id, move, handleClick }) {
+    let color = "";
+    if (move === "red") {
+      color = "red-circle";
+    } else if (move === "blue") {
+      color = "blue-circle";
+    }
+  
+    return (
+      <div className="cell" id={id} onClick={handleClick}>
+        <div className={color}></div>
+      </div>
+    );
+  }
+  
