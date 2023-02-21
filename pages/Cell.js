@@ -1,17 +1,9 @@
 
-
-export default function Cell({ id, move, handleClick }) {
-    let color = "";
-    if (move === "red") {
-      color = "red-circle";
-    } else if (move === "blue") {
-      color = "blue-circle";
-    }
-  
+export default function Cell ({ handleClick, columnIndex, rowIndex, cell }) {
     return (
-      <div className="cell" id={id} onClick={handleClick}>
-        <div className={color}></div>
-      </div>
+      <div
+        className={`cell ${cell === 1 ? 'player1' : cell === 2 ? 'player2' : ''}`}
+        onClick={() => handleClick(columnIndex)}
+      ></div>
     );
-  }
-  
+  };
